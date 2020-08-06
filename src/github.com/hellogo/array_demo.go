@@ -2,7 +2,16 @@ package main
 
 import (
 	"fmt"
+	"math"
 )
+
+type myFloat float64
+
+var container = []string{"zero", "one", "two"}
+
+func (num myFloat) abs() float64 {
+	return math.Abs(float64(num))
+}
 
 func printArray(arr []int) {
 	for i, v := range arr {
@@ -30,4 +39,18 @@ func main() {
 	a3 := a2[3:6]
 	printArray(a3)
 	fmt.Printf("len(a3)=%d, cap(a3)=%d\n", len(a3), cap(a3))
+
+	value, ok := interface{}(container).([]string)
+	fmt.Println(value, ok)
+
+	container := map[int]string{0: "zero", 1: "one", 2: "two"}
+	value1, ok1 := interface{}(container).(map[int]string)
+	fmt.Println(value1, ok1)
+
+	value2, ok2 := interface{}(container).([]string)
+	fmt.Println(value2, ok2)
+
+	// mylist := list.List()
+	fmt.Printf("T(new([]int)=%T\n", new([]int))
+	fmt.Printf("T(make([]int, 10, 20)=%T\n", make([]int, 10, 20))
 }

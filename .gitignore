@@ -15,4 +15,4 @@
 bin/
 pkg/
 src/github.com/golang/
-
+go.sum
