@@ -1,6 +1,7 @@
 package main
 
 import (
+	"container/list"
 	"fmt"
 	"math"
 )
@@ -18,6 +19,36 @@ func printArray(arr []int) {
 		fmt.Printf("i=%d, v=%d; ", i, v)
 	}
 	fmt.Println()
+}
+
+/*
+calculate...
+计算器 + — * /
+*/
+func calculate(input string) int {
+	stack := list.New()
+	numStr := ""
+
+	for _, s := range input {
+		fmt.Printf("val=%v, type=%T, ", s, s)
+		switch s {
+		case '1', '2', '3', '4', '5', '6', '7', '8', '9', '0':
+			numStr := numStr + string(s)
+		case '+', '-', '*', '/':
+			op := stack.Back()
+			if op != nil && (op == "*" || op == "/") {
+				op = stack.Remove(stack.Back())
+				prev := stack.Remove(stack.Back())
+			}
+
+			num1 := int(prev) / int(num)
+
+			stack.PushBack(numStr)
+			stack.PushBack(string(s))
+		}
+	}
+
+	return 0
 }
 
 func updateArray(arr []int) {
@@ -53,4 +84,6 @@ func main() {
 	// mylist := list.List()
 	fmt.Printf("T(new([]int)=%T\n", new([]int))
 	fmt.Printf("T(make([]int, 10, 20)=%T\n", make([]int, 10, 20))
+
+	calculate("123123")
 }
