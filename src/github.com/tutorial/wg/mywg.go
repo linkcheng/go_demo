@@ -55,7 +55,7 @@ func QueryCount() int {
 	return len(ret)
 }
 
-func main1() {
+func main() {
 	wg := &sync.WaitGroup{}
 
     dogChan := make(chan bool, 1)
