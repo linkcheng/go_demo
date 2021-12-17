@@ -9,7 +9,7 @@ import (
 
 // protoc --go_out=paths=source_relative:./message orders.proto
 
-func main() {
+func main1() {
     orders := &message.Orders{
         OrderId: 1,
         Title:   "第一个订单",

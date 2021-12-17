@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package hello;
+
+// import "google/api/annotations.proto";
+// import "protoc-gen-openapiv2/options/annotations.proto";
+// import "validate/validate.proto";
+// import "errors/errors.proto";
+
+option go_package = "proto/hello";
+
+// The greeting service definition.
+service Greeter {
+    // Sends a greeting
+    rpc SayHello (HelloRequest) returns (HelloReply) {
+        // option (google.api.http) = {
+        //     // 定义一个HTTP GET 接口，并且把 name 映射到 HelloRequest
+        //     get: "/helloworld/{name}",
+        // };
+        // // 添加API接口描述(swagger api)
+        // option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+        //     description: "这是SayHello接口";
+        // };
+    }
+}
+
+// The request message containing the user's name.
+message HelloRequest {
+    // 增加name字段参数校验，字符数需在1到16之间
+    // string name = 1 [(validate.rules).string = {min_len: 1, max_len: 16}];
+    string name = 1;
+}
+
+// The response message containing the greetings
+message HelloReply {
+    string message = 1;
+}
+
+// enum ErrorReason {
+//     // 设置缺省错误码
+//     option (errors.default_code) = 500;
+//     // 为某个错误枚举单独设置错误码
+//     USER_NOT_FOUND = 0 [(errors.code) = 404];
+//     CONTENT_MISSING = 1 [(errors.code) = 400];;
+// }

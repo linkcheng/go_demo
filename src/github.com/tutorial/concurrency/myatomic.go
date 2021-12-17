@@ -13,7 +13,7 @@ type Config struct {
 
 func (c *Config)T() {}
 
-func main() {
+func main4() {
 	var v atomic.Value
 	v.Store(&Config{})
 

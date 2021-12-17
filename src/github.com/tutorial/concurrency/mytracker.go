@@ -12,7 +12,7 @@ import (
 3. 可以主动控制 channel 什么时候退出，channel关闭close/stop标志 & context超时两种方式
 */
 
-func main1() {
+func main5() {
 	tr := NewTracker()
 	// 并行的行为丢给调用者
 	go tr.Run()

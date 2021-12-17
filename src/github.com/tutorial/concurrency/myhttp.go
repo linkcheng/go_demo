@@ -45,7 +45,7 @@ func serveDebug(stop <-chan struct{}) error {
 	return serve(addr, http.DefaultServeMux, stop)
 }
 
-func main1() {
+func main01() {
 	done := make(chan error, 2)
 	stop := make(chan struct{})
 	
