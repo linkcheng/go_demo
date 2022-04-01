@@ -19,11 +19,11 @@ func main2() {
 }
 
 func Routine(id int) {
+	defer wg.Done()
 	for i:=0; i<2; i++ {
 		v := Counter
 		time.Sleep(1*time.Nanosecond)
 		v++
 		Counter = v
 	}
-	wg.Done()
 }
